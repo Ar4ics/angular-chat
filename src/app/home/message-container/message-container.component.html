@@ -1,0 +1,6 @@
+<div class="flex-container">
+
+  <app-message-list [messages]="ms.messages$"></app-message-list>
+  <app-message-form (createMessage)="ms.createMessage($event)">
+  </app-message-form>
+</div>

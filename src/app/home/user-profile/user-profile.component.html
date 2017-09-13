@@ -1,0 +1,39 @@
+<md-card>
+
+    <img class="avatar" *ngIf="user" [src]="user.photo" />
+
+        <div *ngIf="currentUpload">
+          <md-progress-bar mode="determinate" value="{{ currentUpload?.progress }}"></md-progress-bar>
+
+          Загрузка: {{currentUpload?.name}} | {{currentUpload?.progress}}%
+        </div>
+
+
+        <div>
+          <button type="button" md-mini-fab (click)="imgFileInput.click()"><md-icon>add</md-icon></button>
+          <input hidden type="file" #imgFileInput (change)="detectFiles($event)" />
+
+          <button md-button [disabled]="!selectedFiles" (click)="uploadSingle()">
+
+                Загрузить картинку
+              </button>
+
+        </div>
+
+        <hr/>
+
+
+  <md-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <md-input-container class="full-width-input">
+        <input mdInput placeholder="Имя" formControlName="name" required>
+        <md-error *ngIf="isFieldInvalid('name')">
+          Укажите имя
+        </md-error>
+      </md-input-container>
+      <button md-raised-button color="primary" type="submit">Сохранить</button>
+    </form>
+
+
+  </md-card-content>
+</md-card>

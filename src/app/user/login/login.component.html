@@ -1,0 +1,23 @@
+<div class="signin-content">
+  <md-card>
+    <md-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <md-input-container class="full-width-input">
+          <input mdInput placeholder="Почта"
+                 formControlName="email" required>
+          <md-error *ngIf="isFieldInvalid('email')">
+            Укажите почту
+          </md-error>
+        </md-input-container>
+        <md-input-container class="full-width-input">
+          <input mdInput type="password" placeholder="Пароль"
+                 formControlName="password" required>
+          <md-error *ngIf="isFieldInvalid('password')">
+            Укажите пароль
+          </md-error>
+        </md-input-container>
+        <button md-raised-button color="primary" type="submit">Войти</button>
+      </form>
+    </md-card-content>
+  </md-card>
+</div>
