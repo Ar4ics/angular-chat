@@ -1,10 +1,10 @@
-# AngularMaterialExample
+# Angular Material Chat
 
 [![Build Status](https://travis-ci.org/loiane/angular-material-example.svg?branch=master)](https://travis-ci.org/loiane/angular-material-example)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
-https://angular-material-example.firebaseapp.com/
+https://angular-chat-5b89d.firebaseapp.com
 
 ## Development server
 
