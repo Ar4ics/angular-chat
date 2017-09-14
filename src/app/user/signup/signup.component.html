@@ -4,6 +4,14 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
         <md-input-container class="full-width-input">
+          <input mdInput placeholder="Имя" formControlName="name">
+          <md-error *ngIf="isFieldInvalid('name')">
+            Укажите имя
+          </md-error>
+        </md-input-container>
+
+
+        <md-input-container class="full-width-input">
           <input mdInput placeholder="Почта" formControlName="email">
           <md-error *ngIf="isFieldInvalid('email')">
             Укажите почту
@@ -17,8 +25,7 @@
           </md-error>
         </md-input-container>
 
-        <button md-raised-button color="primary" type="submit">Войти</button>
-        <button md-raised-button routerLink="../signup">Регистрация</button>
+        <button md-raised-button color="primary" type="submit">Регистрация</button>
       </form>
     </md-card-content>
   </md-card>

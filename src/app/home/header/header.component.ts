@@ -8,13 +8,11 @@ import { AuthService } from '../../core/auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(public auth: AuthService, public router: Router) {}
+  constructor(public auth: AuthService) {}
 
   ngOnInit() {}
 
   signOut() {
-    this.auth.signOut().then(() => {
-      this.router.navigate(['user/login']);
-    });
+    this.auth.signOut();
   }
 }

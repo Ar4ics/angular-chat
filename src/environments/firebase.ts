@@ -3,6 +3,6 @@ export const firebaseConfig = {
   authDomain: 'angular-chat-5b89d.firebaseapp.com',
   databaseURL: 'https://angular-chat-5b89d.firebaseio.com',
   projectId: 'angular-chat-5b89d',
-  storageBucket: '',
+  storageBucket: 'angular-chat-5b89d.appspot.com',
   messagingSenderId: '570812377077'
 };

@@ -34,21 +34,38 @@ export class AuthService {
     return this.db.object(this.userPath);
   }
 
-  signUp(user: User): firebase.Promise<any> {
-    return this.af.auth
+  signUp(user: User) {
+    this.af.auth
       .createUserWithEmailAndPassword(user.email, user.password)
+      .then((u: firebase.User) => {
+        this.updateUserData({
+          name: user.name,
+          photo:
+            'https://hsto.org/files/606/a66/4a3/606a664a3a0145b3bf86acce28acdb16.png'
+        }, `users/${u.uid}`);
+        this.postSignIn();
+      })
       .catch(error => console.log('ERROR @ AuthService#signUp() :', error));
   }
 
-  signIn(user: User): firebase.Promise<any> {
-    return this.af.auth.signInWithEmailAndPassword(user.email, user.password);
+  signIn(user: User) {
+    this.af.auth
+      .signInWithEmailAndPassword(user.email, user.password)
+      .then(() => this.postSignIn())
+      .catch(error => console.log('ERROR @ AuthService#signIn() :', error));
   }
 
-  updateUserData(newUser: User): firebase.Promise<any> {
-    return this.db.object(this.userPath).update(newUser);
+  updateUserData(newUser: User, path = this.userPath): firebase.Promise<any> {
+    return this.db.object(path).update(newUser);
   }
 
-  signOut(): firebase.Promise<any> {
-    return this.af.auth.signOut();
+  signOut() {
+    this.af.auth.signOut().then(() => {
+       this.router.navigate(['user/login']);
+    });
+  }
+
+  postSignIn(): void {
+    this.router.navigate(['home']);
   }
 }
