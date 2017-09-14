@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-message-form',
   templateUrl: './message-form.component.html',
   styleUrls: ['./message-form.component.css']

@@ -25,10 +25,10 @@ export class MessageService {
         : Observable.combineLatest(...userObservables, (...users) => {
             messages.forEach((message, index) => {
               message.user = users[index];
+              // console.log(message);
             });
             return messages;
-          });
-          // .do(value => console.log(value));
+          }).do(value => console.log(value));
     }) as FirebaseListObservable<IMessage[]>;
   }
 

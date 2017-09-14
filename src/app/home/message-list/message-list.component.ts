@@ -12,7 +12,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 import { IMessage } from '../message/imessage';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-message-list',
   templateUrl: './message-list.component.html',
   styleUrls: ['./message-list.component.css']
